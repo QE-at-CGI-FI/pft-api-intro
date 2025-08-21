@@ -1,0 +1,4 @@
+.venv/
+.approval_tests_temp/
+.pytest_cache/
+__pycache__/
