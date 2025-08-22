@@ -1,0 +1,18 @@
+{
+    "Access-Control-Allow-Origin": "*",
+    "CF-RAY": "9730eaa77a3cefd7-ARN",
+    "Cache-Control": "max-age=14400",
+    "Cf-Cache-Status": "HIT",
+    "Charset": "UTF-8",
+    "Connection": "keep-alive",
+    "Content-Encoding": "gzip",
+    "Content-Type": "application/json",
+    "Date": "XXX",
+    "Last-Modified": "XXX",
+    "Nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+    "Report-To": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=pVSYOsn1Kt6epJSv0ZRLm6f%2BLPqIPfk2k%2FRXWRTsFeuk40MCh6D8bC4a44Tq%2F%2BYKlXIkxg5UjamtgtgqsWBYm%2FB4mvuziW%2FlQ9jbzLdFGIw%3D\"}]}",
+    "Server": "cloudflare",
+    "Transfer-Encoding": "chunked",
+    "Vary": "Accept-Encoding",
+    "X-Cache": "hit"
+}

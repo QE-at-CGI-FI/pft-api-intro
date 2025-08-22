@@ -32,6 +32,12 @@ def test_first_get_with_return_header():
     assert response.status_code == 200
     approvaltests.verify_as_json(response.headers)
 
+def test_white_house_zip_all():
+    response = requests.get(URL_ZIP)
+    cleaned_header = {k: v if k != "Last-Modified" else "XXX" for k, v in response.headers.items()}
+    cleaned_header = {k: v if k != "Date" else "XXX" for k, v in cleaned_header.items()}
+    approvaltests.verify_as_json(cleaned_header)
+
 # ########################
 # Tracking progress
 ##########################
