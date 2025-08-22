@@ -8,6 +8,7 @@ CHALLENGES_URL = URL + "challenges"
 XCHAL_URL = URL + "challenger"
 SECRET_NOTE_URL = URL + "secret/note"
 
+# CRUD - REST: POST, GET, ...
 
 URL_ZIP = "http://api.zippopotam.us/fi/00380"
 
@@ -22,8 +23,9 @@ def test_asserting_on_json():
 def test_first_get():
     response = requests.get(URL_ZIP)
     assert response.status_code == 200
-    approvaltests.verify_as_json(response.json())
     assert response.json()['country'] == "Finland"
+    approvaltests.verify_as_json(response.json())
+
 
 def test_first_get_with_return_header():
     response = requests.get(URL_ZIP)
@@ -34,7 +36,7 @@ def test_first_get_with_return_header():
 # Tracking progress
 ##########################
 
-MY_TRACKING_CODE = "87cba35d-d156-43e9-b02c-2290c8b1c386"
+MY_TRACKING_CODE = "e0a13374-e994-4522-830e-16933f345a55"
 
 def test_where_are_we_on_challenges():
     response = requests.get(CHALLENGES_URL,
@@ -50,43 +52,59 @@ Issue a POST request on the `/challenger` end point, with no body, to create a n
 challenger session. Use the generated X-CHALLENGER header in future requests to track challenge completion.
 '''
 def test_challenge_01(): 
-    pass
+    r = requests.post(XCHAL_URL)
+    assert r.status_code == 201
+    assert r.headers['X-CHALLENGER'] == "foo"
+    #approvaltests.verify(xchal)
 
 '''
 Issue a GET request on the `/challenges` end point
 '''
 def test_challenge_02():
-    pass
+    r = requests.get(CHALLENGES_URL,
+                            headers={"X-CHALLENGER": f"{MY_TRACKING_CODE}"})
+    approvaltests.verify_as_json(r.json())
 
 '''
 Issue a GET request on the `/todos` end point
 '''
 def test_challenge_03():
-    pass
+    response = requests.get(TODOS_URL,
+                            headers={"X-CHALLENGER": f"{MY_TRACKING_CODE}"})
+    approvaltests.verify_as_json(response.json())
 
 '''
 Issue a GET request on the `/todo` end point should 404 because nouns should be plural
 '''
 def test_challenge_04():
-    pass
+    r = requests.get(URL + "todo",
+                     headers={"X-CHALLENGER": f"{MY_TRACKING_CODE}"})
+    assert r.status_code == 404
 
 '''
 Issue a GET request on the `/todos/{id}` end point to return a specific todo
 '''
 def test_challenge_05():
-    pass
+    r = requests.get(TODOS_URL + "/4",
+                     headers={"X-CHALLENGER": f"{MY_TRACKING_CODE}"})
+    approvaltests.verify_as_json(r.json())
 
 '''
 Issue a GET request on the `/todos/{id}` end point for a todo that does not exist
 '''
 def test_challenge_06():
-    pass
+    r = requests.get(TODOS_URL + "/40",
+                     headers={"X-CHALLENGER": f"{MY_TRACKING_CODE}"})
+    assert r.status_code == 404 
 
 '''
 Issue a GET request on the `/todos` end point with a query filter to get only todos which are 'done'. There must exist both 'done' and 'not done' todos, to pass this challenge.
 '''
 def test_challenge_07():
-    pass
+    headers = {"X-CHALLENGER": MY_TRACKING_CODE}
+    r = requests.get(f"{TODOS_URL}/todos?doneStatus=false", headers=headers)
+    assert r.status_code == 200
+    approvaltests.verify_as_json(r.json())
 
 # ########################
 # Authorization Challenges

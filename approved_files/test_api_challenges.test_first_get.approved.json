@@ -1,0 +1,14 @@
+{
+    "country": "Finland",
+    "country abbreviation": "FI",
+    "places": [
+        {
+            "latitude": "60.1756",
+            "longitude": "24.9342",
+            "place name": "Helsinki",
+            "state": "",
+            "state abbreviation": ""
+        }
+    ],
+    "post code": "00380"
+}

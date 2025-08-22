@@ -1,0 +1,358 @@
+{
+    "challenges": [
+        {
+            "description": "Issue a POST request on the `/challenger` end point, with no body, to create a new challenger session. Use the generated X-CHALLENGER header in future requests to track challenge completion.",
+            "id": 1,
+            "name": "POST /challenger (201)",
+            "status": true
+        },
+        {
+            "description": "Issue a GET request on the `/challenges` end point",
+            "id": 2,
+            "name": "GET /challenges (200)",
+            "status": true
+        },
+        {
+            "description": "Issue a GET request on the `/todos` end point",
+            "id": 3,
+            "name": "GET /todos (200)",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/todo` end point should 404 because nouns should be plural",
+            "id": 4,
+            "name": "GET /todo (404) not plural",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/todos/{id}` end point to return a specific todo",
+            "id": 5,
+            "name": "GET /todos/{id} (200)",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/todos/{id}` end point for a todo that does not exist",
+            "id": 6,
+            "name": "GET /todos/{id} (404)",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/todos` end point with a query filter to get only todos which are 'done'. There must exist both 'done' and 'not done' todos, to pass this challenge.",
+            "id": 7,
+            "name": "GET /todos (200) ?filter",
+            "status": false
+        },
+        {
+            "description": "Issue a HEAD request on the `/todos` end point",
+            "id": 8,
+            "name": "HEAD /todos (200)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request to successfully create a todo",
+            "id": 9,
+            "name": "POST /todos (201)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request to create a todo but fail validation on the `doneStatus` field",
+            "id": 10,
+            "name": "POST /todos (400) doneStatus",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request to create a todo but fail length validation on the `title` field because your title exceeds maximum allowable characters.",
+            "id": 11,
+            "name": "POST /todos (400) title too long",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request to create a todo but fail length validation on the `description` because your description exceeds maximum allowable characters.",
+            "id": 12,
+            "name": "POST /todos (400) description too long",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request to create a todo with maximum length title and description fields.",
+            "id": 13,
+            "name": "POST /todos (201) max out content",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request to create a todo but fail payload length validation on the `description` because your whole payload exceeds maximum allowable 5000 characters.",
+            "id": 14,
+            "name": "POST /todos (413) content too long",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request to create a todo but fail validation because your payload contains an unrecognised field.",
+            "id": 15,
+            "name": "POST /todos (400) extra",
+            "status": false
+        },
+        {
+            "description": "Issue a PUT request to unsuccessfully create a todo",
+            "id": 16,
+            "name": "PUT /todos/{id} (400)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request to successfully update a todo",
+            "id": 17,
+            "name": "POST /todos/{id} (200)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request for a todo which does not exist. Expect to receive a 404 response.",
+            "id": 18,
+            "name": "POST /todos/{id} (404)",
+            "status": false
+        },
+        {
+            "description": "Issue a PUT request to update an existing todo with a complete payload i.e. title, description and donestatus.",
+            "id": 19,
+            "name": "PUT /todos/{id} full (200)",
+            "status": false
+        },
+        {
+            "description": "Issue a PUT request to update an existing todo with just mandatory items in payload i.e. title.",
+            "id": 20,
+            "name": "PUT /todos/{id} partial (200)",
+            "status": false
+        },
+        {
+            "description": "Issue a PUT request to fail to update an existing todo because title is missing in payload.",
+            "id": 21,
+            "name": "PUT /todos/{id} no title (400)",
+            "status": false
+        },
+        {
+            "description": "Issue a PUT request to fail to update an existing todo because id different in payload.",
+            "id": 22,
+            "name": "PUT /todos/{id} no amend id (400)",
+            "status": false
+        },
+        {
+            "description": "Issue a DELETE request to successfully delete a todo",
+            "id": 23,
+            "name": "DELETE /todos/{id} (200)",
+            "status": false
+        },
+        {
+            "description": "Issue an OPTIONS request on the `/todos` end point. You might want to manually check the 'Allow' header in the response is as expected.",
+            "id": 24,
+            "name": "OPTIONS /todos (200)",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/todos` end point with an `Accept` header of `application/xml` to receive results in XML format",
+            "id": 25,
+            "name": "GET /todos (200) XML",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/todos` end point with an `Accept` header of `application/json` to receive results in JSON format",
+            "id": 26,
+            "name": "GET /todos (200) JSON",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/todos` end point with an `Accept` header of `*/*` to receive results in default JSON format",
+            "id": 27,
+            "name": "GET /todos (200) ANY",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/todos` end point with an `Accept` header of `application/xml, application/json` to receive results in the preferred XML format",
+            "id": 28,
+            "name": "GET /todos (200) XML pref",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/todos` end point with no `Accept` header present in the message to receive results in default JSON format",
+            "id": 29,
+            "name": "GET /todos (200) no accept",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/todos` end point with an `Accept` header `application/gzip` to receive 406 'NOT ACCEPTABLE' status code",
+            "id": 30,
+            "name": "GET /todos (406)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/todos` end point to create a todo using Content-Type `application/xml`, and Accepting only XML ie. Accept header of `application/xml`",
+            "id": 31,
+            "name": "POST /todos XML",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/todos` end point to create a todo using Content-Type `application/json`, and Accepting only JSON ie. Accept header of `application/json`",
+            "id": 32,
+            "name": "POST /todos JSON",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/todos` end point with an unsupported content type to generate a 415 status code",
+            "id": 33,
+            "name": "POST /todos (415)",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/challenger/{guid}` end point, with an existing challenger GUID. This will return the progress data payload that can be used to later restore your progress to this status.",
+            "id": 34,
+            "name": "GET /challenger/guid (existing X-CHALLENGER)",
+            "status": false
+        },
+        {
+            "description": "Issue a PUT request on the `/challenger/{guid}` end point, with an existing challenger GUID to restore that challenger's progress into memory.",
+            "id": 35,
+            "name": "PUT /challenger/guid RESTORE",
+            "status": false
+        },
+        {
+            "description": "Issue a PUT request on the `/challenger/{guid}` end point, with a challenger GUID not currently in memory to restore that challenger's progress into memory.",
+            "id": 36,
+            "name": "PUT /challenger/guid CREATE",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/challenger/database/{guid}` end point, to retrieve the current todos database for the user. You can use this to restore state later.",
+            "id": 37,
+            "name": "GET /challenger/database/guid (200)",
+            "status": false
+        },
+        {
+            "description": "Issue a PUT request on the `/challenger/database/{guid}` end point, with a payload to restore the Todos database in memory.",
+            "id": 38,
+            "name": "PUT /challenger/database/guid (Update)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/todos` end point to create a todo using Content-Type `application/xml` but Accept `application/json`",
+            "id": 39,
+            "name": "POST /todos XML to JSON",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/todos` end point to create a todo using Content-Type `application/json` but Accept `application/xml`",
+            "id": 40,
+            "name": "POST /todos JSON to XML",
+            "status": false
+        },
+        {
+            "description": "Issue a DELETE request on the `/heartbeat` end point and receive 405 (Method Not Allowed)",
+            "id": 41,
+            "name": "DELETE /heartbeat (405)",
+            "status": false
+        },
+        {
+            "description": "Issue a PATCH request on the `/heartbeat` end point and receive 500 (internal server error)",
+            "id": 42,
+            "name": "PATCH /heartbeat (500)",
+            "status": false
+        },
+        {
+            "description": "Issue a TRACE request on the `/heartbeat` end point and receive 501 (Not Implemented)",
+            "id": 43,
+            "name": "TRACE /heartbeat (501)",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/heartbeat` end point and receive 204 when server is running",
+            "id": 44,
+            "name": "GET /heartbeat (204)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/heartbeat` end point and receive 405 when you override the Method Verb to a DELETE",
+            "id": 45,
+            "name": "POST /heartbeat as DELETE (405)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/heartbeat` end point and receive 500 when you override the Method Verb to a PATCH",
+            "id": 46,
+            "name": "POST /heartbeat as PATCH (500)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/heartbeat` end point and receive 501 (Not Implemented) when you override the Method Verb to a TRACE",
+            "id": 47,
+            "name": "POST /heartbeat as Trace (501)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/secret/token` end point and receive 401 when Basic auth username/password is not admin/password",
+            "id": 48,
+            "name": "POST /secret/token (401)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/secret/token` end point and receive 201 when Basic auth username/password is admin/password",
+            "id": 49,
+            "name": "POST /secret/token (201)",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/secret/note` end point and receive 403 when X-AUTH-TOKEN does not match a valid token",
+            "id": 50,
+            "name": "GET /secret/note (403)",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/secret/note` end point and receive 401 when no X-AUTH-TOKEN header present",
+            "id": 51,
+            "name": "GET /secret/note (401)",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/secret/note` end point receive 200 when valid X-AUTH-TOKEN used - response body should contain the note",
+            "id": 52,
+            "name": "GET /secret/note (200)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/secret/note` end point with a note payload e.g. {\"note\":\"my note\"} and receive 200 when valid X-AUTH-TOKEN used. Note is maximum length 100 chars and will be truncated when stored.",
+            "id": 53,
+            "name": "POST /secret/note (200)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/secret/note` end point with a note payload {\"note\":\"my note\"} and receive 401 when no X-AUTH-TOKEN present",
+            "id": 54,
+            "name": "POST /secret/note (401)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/secret/note` end point with a note payload {\"note\":\"my note\"} and receive 403 when X-AUTH-TOKEN does not match a valid token",
+            "id": 55,
+            "name": "POST /secret/note (403)",
+            "status": false
+        },
+        {
+            "description": "Issue a GET request on the `/secret/note` end point receive 200 when using the X-AUTH-TOKEN value as an Authorization Bearer token - response body should contain the note",
+            "id": 56,
+            "name": "GET /secret/note (Bearer)",
+            "status": false
+        },
+        {
+            "description": "Issue a POST request on the `/secret/note` end point with a note payload e.g. {\"note\":\"my note\"} and receive 200 when valid X-AUTH-TOKEN value used as an Authorization Bearer token. Status code 200 received. Note is maximum length 100 chars and will be truncated when stored.",
+            "id": 57,
+            "name": "POST /secret/note (Bearer)",
+            "status": false
+        },
+        {
+            "description": "Issue a DELETE request to successfully delete the last todo in system so that there are no more todos in the system",
+            "id": 58,
+            "name": "DELETE /todos/{id} (200) all",
+            "status": false
+        },
+        {
+            "description": "Issue as many POST requests as it takes to add the maximum number of TODOS allowed for a user. The maximum number should be listed in the documentation.",
+            "id": 59,
+            "name": "POST /todos (201) all",
+            "status": false
+        }
+    ]
+}
